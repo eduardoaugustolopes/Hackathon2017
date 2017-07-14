@@ -5,14 +5,18 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "CidadaoAlerta", "CidadaoAlerta\CidadaoAlerta.jsproj", "{AA159D64-3394-443F-B3E6-70F4D5697A61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CidadaoAlertaWS", "CidadaoAlertaWS\CidadaoAlertaWS.csproj", "{E75CC500-6115-4F76-8582-2CC420D5636F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
+		Debug|Any CPU = Debug|Any CPU
 		Debug|iOS = Debug|iOS
 		Debug|Windows-ARM = Debug|Windows-ARM
 		Debug|Windows-x64 = Debug|Windows-x64
 		Debug|Windows-x86 = Debug|Windows-x86
 		Release|Android = Release|Android
+		Release|Any CPU = Release|Any CPU
 		Release|iOS = Release|iOS
 		Release|Windows-ARM = Release|Windows-ARM
 		Release|Windows-x64 = Release|Windows-x64
@@ -22,6 +26,7 @@ Global
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|Android.ActiveCfg = Debug|Android
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|Android.Build.0 = Debug|Android
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|Android.Deploy.0 = Debug|Android
+		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|Any CPU.ActiveCfg = Debug|Android
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|iOS.ActiveCfg = Debug|iOS
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|iOS.Build.0 = Debug|iOS
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Debug|iOS.Deploy.0 = Debug|iOS
@@ -37,6 +42,7 @@ Global
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Android.ActiveCfg = Release|Android
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Android.Build.0 = Release|Android
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Android.Deploy.0 = Release|Android
+		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Any CPU.ActiveCfg = Release|Android
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|iOS.ActiveCfg = Release|iOS
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|iOS.Build.0 = Release|iOS
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|iOS.Deploy.0 = Release|iOS
@@ -49,6 +55,30 @@ Global
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Windows-x86.ActiveCfg = Release|Windows-x86
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Windows-x86.Build.0 = Release|Windows-x86
 		{AA159D64-3394-443F-B3E6-70F4D5697A61}.Release|Windows-x86.Deploy.0 = Release|Windows-x86
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Android.Build.0 = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|iOS.Build.0 = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Windows-ARM.Build.0 = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Windows-x64.Build.0 = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Debug|Windows-x86.Build.0 = Debug|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Android.ActiveCfg = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Android.Build.0 = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|iOS.ActiveCfg = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|iOS.Build.0 = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Windows-ARM.Build.0 = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Windows-x64.ActiveCfg = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Windows-x64.Build.0 = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Windows-x86.ActiveCfg = Release|Any CPU
+		{E75CC500-6115-4F76-8582-2CC420D5636F}.Release|Windows-x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
