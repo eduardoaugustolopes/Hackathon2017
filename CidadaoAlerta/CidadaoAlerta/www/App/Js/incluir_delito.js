@@ -41,10 +41,14 @@
 }
 
 function cadastraOcorrencia() {
+    localizarumavez(executaCadastraOcorrencia);
+}
+
+function executaCadastraOcorrencia(position) {
     $.ajax({
         type: "POST",
         url: WS_CidadaoAlerta() + "/Api/Ocorrencia/Create",
-        data: JSON.stringify(retornaDadosTelaOcorrencia()),
+        data: JSON.stringify(retornaDadosTelaOcorrencia(position)),
         cache: false,
         contentType: "application/json;charset=utf-8",
         headers: { "Authorization": "Bearer " + localStorage.getItem("jtoken") },
@@ -62,11 +66,14 @@ function cadastraOcorrencia() {
     });
 }
 
-function retornaDadosTelaOcorrencia() {
+function retornaDadosTelaOcorrencia(position) {
+    
     data = {
         TipoOcorrencia: $("#TipoOcorrencia").val(),
         TipoItem: $("#TipoItem").val(),
-        Descricao: $("#Descricao").val()
+        Descricao: $("#Descricao").val(),
+        Latitude: position.coords.latitude,
+        Longitude: position.coords.longitude
     }
 
     return data;
