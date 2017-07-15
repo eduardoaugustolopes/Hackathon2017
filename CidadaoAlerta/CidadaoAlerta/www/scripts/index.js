@@ -8,7 +8,8 @@
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
     function onDeviceReady() {
-        criaTelaLogin();
+        //criaTelaLogin();
+        criaTelaIncluirDelito();
     };
 
     function onPause() {
