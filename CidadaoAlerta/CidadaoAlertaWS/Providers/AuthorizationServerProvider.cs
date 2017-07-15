@@ -28,6 +28,7 @@ namespace CidadaoAlertaWS.Providers
                     var claims = new List<string>();
                     
                     identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
+                    identity.AddClaim(new Claim("UsuarioId", usuario.Id.ToString()));
                     Thread.CurrentPrincipal = new GenericPrincipal(identity, claims.ToArray());
                     context.Validated(identity);
                 }

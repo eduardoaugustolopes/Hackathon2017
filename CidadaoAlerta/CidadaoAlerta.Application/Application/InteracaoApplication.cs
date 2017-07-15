@@ -2,22 +2,22 @@
 using CidadaoAlerta.Domain.Interfaces;
 using CidadaoAlerta.Domain.Services;
 using CidadaoAlerta.Infra.DependencyInjection.Services;
-using System;
 using System.Collections.Generic;
 
 namespace CidadaoAlerta.Application.Application
 {
-    public class UsuarioApplication
+    public class InteracaoApplication
     {
-        private static readonly UsuarioService _usuarioService = new UsuarioService(
+        private static readonly InteracaoService _interacaoService = new InteracaoService(
             DependencyInjectionService.Resolve<IDataContext>(),
+            DependencyInjectionService.Resolve<IInteracaoRepository>(),
             DependencyInjectionService.Resolve<IUsuarioRepository>());
 
         public static string ResponseMessage
         {
             get
             {
-                return _usuarioService.ResponseService.Message;
+                return _interacaoService.ResponseService.Message;
             }
         }
 
@@ -25,7 +25,7 @@ namespace CidadaoAlerta.Application.Application
         {
             get
             {
-                return _usuarioService.ResponseService.Type.ToString();
+                return _interacaoService.ResponseService.Type.ToString();
             }
         }
 
@@ -33,19 +33,13 @@ namespace CidadaoAlerta.Application.Application
         {
             get
             {
-                return _usuarioService.ResponseService.FieldsInvalids;
+                return _interacaoService.ResponseService.FieldsInvalids;
             }
         }
 
-        public static Usuario Get(string login, string senha)
+        public static void Add(Interacao interacao)
         {
-            return _usuarioService.Get(login, senha);
-        }
-        public static int ObtemUsuarioLogadoId(List<System.Security.Claims.Claim> claims)
-        {
-            var usuarioId = Convert.ToInt32(claims.Find(x => x.Type == "UsuarioId").Value);
-
-            return usuarioId;
+            _interacaoService.Add(interacao);
         }
     }
 }
