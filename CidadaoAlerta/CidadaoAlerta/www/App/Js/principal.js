@@ -87,7 +87,7 @@ function onClickOcorrencia(id) {
         contentType: "application/json",
         headers: { "Authorization": "Bearer " + localStorage.getItem("jtoken") },
         success: function (retorno) {
-            alert("ok");
+            desenhaTelaOcorrencia(retorno.Ocorrencia);
         },
         error: function (retorno) {
             alert(JSON.parse(retorno.responseText).Message);
@@ -96,26 +96,32 @@ function onClickOcorrencia(id) {
 }
 
 function desenhaTelaOcorrencia(ocorrencia) {
+    var tipoOcorrencia = retornaDescricaoTipoOcorrencia(ocorrencia.TipoOcorrencia);
+    var tipoItem = retornaDescricaoTipoItem(ocorrencia.TipoItem);
+
+    
     $("#conteudo").html(
-        "<div id='exibeOcorrencia'  class='container' style='padding-top: 100px'>" +
-            "<form class='form-horizontal'>" +
-                "<div class='form-group'>" +
-                    "<label class='col-sm-2' for='descricao'>Descrição</label>" +
-                    "<div class='col-sm-10'>" +
-                        "<p class='form-control-static'>" + ocorrencia.descricao + "</p > " +
-                    "</div>" +
+        "<div id='exibeOcorrencia' class='container' style='padding-top: 8px'>" +         
+                
+            "<label class='col-sm-2' for='descricao'>Descrição</label>" +
+            "<div class='col-sm-10'>" +
+                "<p class='form-control-static'>" + ocorrencia.Descricao + "</p > " +
+            "</div>" +
 
-                    "<label class='col-sm-2' for='data'>Data</label>" +
-                    "<div class='col-sm-10'>" +
-                        "<p class='form-control-static'>" + ocorrencia.data + "</p>" +
-                    "</div>" +
+            "<label class='col-sm-2' for='data'>Data</label>" +
+            "<div class='col-sm-10'>" +
+                "<p class='form-control-static'>" + ocorrencia.Data + "</p>" +
+            "</div>" +
 
-                    "<label class='col-sm-2' for='tipo'>Tipo de ocorrência</label>" +
-                    "<div class='col-sm-10'>" +
-                        "<p class='form-control-static'>" + ocorrencia.tipo + "</p>" +
-                    "</div>" +
-                "</div>" +
-            "</form> " +
+            "<label class='col-sm-2' for='tipo'>Tipo de ocorrência</label>" +
+            "<div class='col-sm-10'>" +
+                "<p class='form-control-static'>" + tipoOcorrencia + "</p>" +
+            "</div>" +
+
+            "<label class='col-sm-2' for='tipo'>Tipo de item</label>" +
+            "<div class='col-sm-10'>" +
+                 "<p class='form-control-static'>" + tipoItem + "</p>" +
+             "</div>" +
         "</div>"
     );
 }
