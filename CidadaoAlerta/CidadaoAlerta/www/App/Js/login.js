@@ -14,20 +14,20 @@
                     "<div class='panel-body'>"+
                         "<div class='row'>"+
                             "<div class='col-lg-12'>"+
-                                "<form id='login-form' method='post' role='form' style='display: block;'>"+
+                                "<form id='login-form' role='form' style='display: block;'>"+
                                     "<div class='form-group'>"+
-                                        "<input type='text' name='usuario' id='usuario' tabindex='1' class='form-control' placeholder='Usuário' value=''>"+
+                                        "<input type='text' name='usuario' id='usuario' class='form-control' placeholder='Usuário' value=''>"+
                                     "</div>"+
-                                        "<div class='form-group'>"+
-                                            "<input type='password' name='senha' id='senha' tabindex='2' class='form-control' placeholder='Senha'>"+
-                                        "</div>"+
-                                            "<div class='form-group text-center'>"+
-                                                "<input type='checkbox' tabindex='3' class='' name='lembrar' id='lembrar'>"+
-                                                "<label for='remember'> Lembrar Me</label>"+
-                                            "</div>"+
+                                    "<div class='form-group'>"+
+                                        "<input type='password' name='senha' id='senha' class='form-control' placeholder='Senha'>"+
+                                    "</div>"+
+                                            //"<div class='form-group text-center'>"+
+                                            //    "<input type='checkbox' tabindex='3' class='' name='lembrar' id='lembrar'>"+
+                                            //    "<label for='remember'> Lembrar Me</label>"+
+                                            //"</div>"+
                                             "<div class='form-group'>"+
                                                 "<div class='row'>"+
-                                                    "<input type='submit' name='login-submit' id='login-submit' tabindex='4' class='form-control btn btn-login' value='Entrar'>"+
+                                                    "<input name='login-submit' id='login-submit' tabindex='4' class='form-control btn btn-login' value='Entrar' onclick='login();'>"+
                                                 "</div>"+
                                             "</div>"+
                                         "</div>"+
@@ -47,4 +47,25 @@
                 "</div>"+
             "</div>"+
         "</div>");
+}
+
+function login() {
+    var dados = {
+        grant_type: "password",
+        username: $("#usuario").val(),
+        password: $("#senha").val()
+    };
+    $.ajax({
+        type: "POST",
+        url: WS_CidadaoAlerta() + "/api/security/token",
+        data: dados,
+        cache: false,
+        success: function (retorno) {
+            localStorage.setItem("jtoken", retorno.access_token);
+            //verificaFranqueados();
+        },
+        error: function (retorno) {
+            alert(retorno.responseJSON.error_description);
+        }
+    });
 }
