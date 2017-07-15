@@ -14,7 +14,7 @@
                     "<li><a href='#'>Polícia Cívil</a></li>"+
                 "</ul>"+
                 "<ul class='side-nav' id='menu-mobile'>"+
-                    "<li><a href='#'>Ocorrências</a></li>"+
+                    "<li><a onclick='criaTelaIncluirDelito();'>Nova Ocorrências</a></li>"+
                     "<li><a href='tel:37988174539'>Emergências</a></li>"+
                     "<li><a href='#'>Polícia Militar</a></li>" +
                     "<li><a href='#'>Polícia Ambiental</a></li>" +
