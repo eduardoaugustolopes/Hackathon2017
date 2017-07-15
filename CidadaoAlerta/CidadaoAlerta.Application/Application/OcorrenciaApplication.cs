@@ -11,6 +11,7 @@ namespace CidadaoAlerta.Application.Application
         private static readonly OcorrenciaService _ocorrenciaService = new OcorrenciaService(
             DependencyInjectionService.Resolve<IDataContext>(),
             DependencyInjectionService.Resolve<IOcorrenciaRepository>(),
+            DependencyInjectionService.Resolve<IInteracaoRepository>(),
             DependencyInjectionService.Resolve<IUsuarioRepository>());
 
         public static string ResponseMessage
@@ -40,6 +41,16 @@ namespace CidadaoAlerta.Application.Application
         public static void Add(Ocorrencia ocorrencia)
         {
             _ocorrenciaService.Add(ocorrencia);
+        }
+
+        public static List<Ocorrencia> Get()
+        {
+            return _ocorrenciaService.Get();
+        }
+
+        public static Ocorrencia Get(int id)
+        {
+            return _ocorrenciaService.Get(id);
         }
     }
 }

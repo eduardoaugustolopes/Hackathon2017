@@ -11,6 +11,7 @@ namespace CidadaoAlerta.Domain.Entities
         public TipoOcorrenciaEnum TipoOcorrencia { get; set; }
         public TipoItemEnum TipoItem { get; set; }
         public DateTime Data { get; set; }
+
         string _descricao = string.Empty;
         public string Descricao
         {

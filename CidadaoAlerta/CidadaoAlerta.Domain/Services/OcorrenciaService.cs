@@ -2,6 +2,7 @@
 using CidadaoAlerta.Domain.Enums;
 using CidadaoAlerta.Domain.Interfaces;
 using System;
+using System.Collections.Generic;
 
 namespace CidadaoAlerta.Domain.Services
 {
@@ -9,6 +10,7 @@ namespace CidadaoAlerta.Domain.Services
     {
         private readonly IDataContext _dataContext;
         private readonly IOcorrenciaRepository _ocorrenciaRepository;
+        private readonly IInteracaoRepository _interacaoRepository;
         private readonly IUsuarioRepository _usuarioRepository;
 
         public ResponseService ResponseService;
@@ -20,10 +22,12 @@ namespace CidadaoAlerta.Domain.Services
 
         public OcorrenciaService(IDataContext dataContext,
             IOcorrenciaRepository ocorrenciaRepository,
+            IInteracaoRepository interacaoRepository,
             IUsuarioRepository usuarioRepository)
         {
             _dataContext = dataContext;
             _ocorrenciaRepository = ocorrenciaRepository;
+            _interacaoRepository = interacaoRepository;
             _usuarioRepository = usuarioRepository;
 
             ResponseService = new ResponseService();
@@ -48,6 +52,57 @@ namespace CidadaoAlerta.Domain.Services
                 {
                     dataContext.Rollback();
                     ResponseService = new ResponseService(ResponseTypeEnum.Error, "Erro ao cadastrar a operação.");
+                }
+                finally
+                {
+                    dataContext.Finally();
+                }
+            }
+        }
+
+        public List<Ocorrencia> Get()
+        {
+            using (var dataContext = _dataContext)
+            {
+                try
+                {
+                    dataContext.BeginTransaction();
+
+                    var ocorrencias = _ocorrenciaRepository.Get();
+
+                    ResponseService = new ResponseService(ResponseTypeEnum.Success, "Ocorrências consultadas com sucesso!");
+                    return ocorrencias;
+                }
+                catch (Exception ex)
+                {
+                    ResponseService = new ResponseService(ResponseTypeEnum.Error, "Erro ao recuperar as ocorrências.");
+                    return null;
+                }
+                finally
+                {
+                    dataContext.Finally();
+                }
+            }
+        }
+
+        public Ocorrencia Get(int id)
+        {
+            using (var dataContext = _dataContext)
+            {
+                try
+                {
+                    dataContext.BeginTransaction();
+
+                    var ocorrencia = _ocorrenciaRepository.Get(id);
+                    ocorrencia.Interacoes = _interacaoRepository.GetPorOcorrencia(id);
+
+                    ResponseService = new ResponseService(ResponseTypeEnum.Success, "Ocorrência consultadas com sucesso!");
+                    return ocorrencia;
+                }
+                catch (Exception ex)
+                {
+                    ResponseService = new ResponseService(ResponseTypeEnum.Error, "Erro ao recuperar a ocorrência.");
+                    return null;
                 }
                 finally
                 {
