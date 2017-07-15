@@ -7,10 +7,18 @@
                     "<i class='fa fa-bars'></i>"+
                 "</a>"+
                 "<ul class='right hide-on-med-and-down'>"+
-                    "<li><a href='#'>Ocorrência</a></li>"+
+                    "<li><a href='#'>Ocorrências</a></li>"+
+                    "<li><a href='tel:37988174539'>Emergências</a></li>"+
+                    "<li><a href='#'>Polícia Militar</a></li>"+
+                    "<li><a href='#'>Polícia Ambiental</a></li>"+
+                    "<li><a href='#'>Polícia Cívil</a></li>"+
                 "</ul>"+
                 "<ul class='side-nav' id='menu-mobile'>"+
-                    "<li><a href='#'>Ocorrência</a></li>"+
+                    "<li><a href='#'>Ocorrências</a></li>"+
+                    "<li><a href='tel:37988174539'>Emergências</a></li>"+
+                    "<li><a href='#'>Polícia Militar</a></li>" +
+                    "<li><a href='#'>Polícia Ambiental</a></li>" +
+                    "<li><a href='#'>Polícia Cívil</a></li>" +
                 "</ul>"+
             "</div>"+
         "</nav>"+
