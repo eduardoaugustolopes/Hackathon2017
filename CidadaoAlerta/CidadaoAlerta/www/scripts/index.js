@@ -7,9 +7,8 @@
 
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
-    function onDeviceReady() {
-        //criaTelaLogin();
-        criaTelaIncluirDelito();
+    function onDeviceReady() {        
+        criaTelaLogin();
     };
 
     function onPause() {
