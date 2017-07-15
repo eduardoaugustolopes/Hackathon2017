@@ -206,6 +206,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AuthorizationServerProvider.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -277,6 +279,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CidadaoAlerta.Application\CidadaoAlerta.Application.csproj">
+      <Project>{67159288-BAE9-4882-84FB-AF6673387C14}</Project>
+      <Name>CidadaoAlerta.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CidadaoAlerta.Domain\CidadaoAlerta.Domain.csproj">
+      <Project>{1C7EF38C-5236-4D0F-BF58-82289A6F9F0D}</Project>
+      <Name>CidadaoAlerta.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CidadaoAlerta.Infra\CidadaoAlerta.Infra.csproj">
+      <Project>{04F614DD-9860-4CA0-9835-51FB9BD260FF}</Project>
+      <Name>CidadaoAlerta.Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
