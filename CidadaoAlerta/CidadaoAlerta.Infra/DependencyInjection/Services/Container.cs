@@ -36,7 +36,9 @@ namespace CidadaoAlerta.Infra.DependencyInjection.Services
         {
             _unityContainer
                 .RegisterType<IDataContext, DataContext>(new InjectionConstructor())
-                .RegisterType<IUsuarioRepository, UsuarioRepository>(new InjectionConstructor());
+                .RegisterType<IUsuarioRepository, UsuarioRepository>(new InjectionConstructor())
+                .RegisterType<IOcorrenciaRepository, OcorrenciaRepository>(new InjectionConstructor())
+                .RegisterType<IInteracaoRepository, InteracaoRepository>(new InjectionConstructor());
         }
     }
 }

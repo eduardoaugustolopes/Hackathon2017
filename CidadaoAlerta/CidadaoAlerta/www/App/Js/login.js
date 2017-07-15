@@ -1,6 +1,6 @@
 ﻿function criaTelaLogin() {
     $("#main").html(
-        "<div class='row'>"+
+        "<div class='row' style='margin-top: 90px'>"+
             "<div class='col-md-6 col-md-offset-3'>"+
                 "<div class='panel panel-login'>"+
                     "<div class='panel-heading'>"+
