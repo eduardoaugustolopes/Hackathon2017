@@ -7,7 +7,7 @@
 
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
 
-    function onDeviceReady() {
+    function onDeviceReady() {        
         criaTelaLogin();
     };
 

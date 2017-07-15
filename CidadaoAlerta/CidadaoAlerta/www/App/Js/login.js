@@ -61,8 +61,8 @@ function login() {
         data: dados,
         cache: false,
         success: function (retorno) {
-            localStorage.setItem("jtoken", retorno.access_token);
-            //verificaFranqueados();
+            localStorage.setItem("jtoken", retorno.access_token);           
+            criarTelaPrincipal();
         },
         error: function (retorno) {
             alert(retorno.responseJSON.error_description);
