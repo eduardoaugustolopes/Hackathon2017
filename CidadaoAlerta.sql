@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS ocorrencia(
 	descricao varchar(255) NOT NULL DEFAULT '',	        /* senha do usuário */
 	latitude varchar(50) NOT NULL DEFAULT '',	        /* senha do usuário */
 	longitude varchar(50) NOT NULL DEFAULT '',	        /* senha do usuário */
-	CONSTRAINT cp_usuario PRIMARY KEY (usuario_id)
+	CONSTRAINT cp_ocorrencia PRIMARY KEY (ocorrencia_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /* Tabela de usuários do sistema */
@@ -32,6 +32,6 @@ CREATE TABLE IF NOT EXISTS interacao(
 	descricao varchar(255) NOT NULL DEFAULT '',	        /* senha do usuário */
 	latitude varchar(50) NOT NULL DEFAULT '',	        /* senha do usuário */
 	longitude varchar(50) NOT NULL DEFAULT '',	        /* senha do usuário */
-	CONSTRAINT cp_usuario PRIMARY KEY (usuario_id)
+	CONSTRAINT cp_interacao PRIMARY KEY (interacao_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

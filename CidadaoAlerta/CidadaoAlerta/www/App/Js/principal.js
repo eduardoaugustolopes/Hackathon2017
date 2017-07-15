@@ -2,19 +2,19 @@
     $("#main").html(
         "<nav>"+
             "<div class='nav-wrapper'>"+
-                "<a href='#' class='brand-logo'>Lista de Ocorrências</a>"+
-                "<a href='#' data-activates='menu-mobile' class='button-collapse'>"+
+                "<a class='brand-logo'>Lista de Ocorrências</a>"+
+                "<a data-activates='menu-mobile' class='button-collapse'>"+
                     "<i class='fa fa-bars'></i>"+
                 "</a>"+
                 "<ul class='right hide-on-med-and-down'>"+
-                    "<li><a href='#'>Ocorrência</a></li>"+
+                    "<li><a href='#'>Ocorrências</a></li>"+
                 "</ul>"+
                 "<ul class='side-nav' id='menu-mobile'>"+
-                    "<li><a href='#'>Ocorrência</a></li>"+
+                    "<li><a onclick='criaTelaIncluirDelito();'>Nova Ocorrência</a></li>"+
                 "</ul>"+
             "</div>"+
         "</nav>"+
-        "<div id='conteudo' class='container'>"+
+        "<div id='conteudo' class='container' style='padding-botton: 10px'>"+
             "<table>"+
                 "<thead>"+
                     "<tr>"+
@@ -33,5 +33,7 @@
             "</table>"+
         "</div>"
     );
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav({
+        closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    });
 }

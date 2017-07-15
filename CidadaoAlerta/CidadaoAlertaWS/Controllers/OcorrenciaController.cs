@@ -13,13 +13,16 @@ namespace CidadaoAlertaWS.Controllers
     public class OcorrenciaController : ApiController
     {
         [HttpPost]
-        [Route("Api/Categoria/Create")]
+        [Route("Api/Ocorrencia/Create")]
         [Authorize]
         public HttpResponseMessage Create(Ocorrencia ocorrencia)
         {
             try
             {
-                ocorrencia.Usuario.Id = UsuarioApplication.ObtemUsuarioLogadoId((User.Identity as ClaimsIdentity).Claims.ToList());
+                ocorrencia.Usuario = new Usuario()
+                {
+                    Id = UsuarioApplication.ObtemUsuarioLogadoId((User.Identity as ClaimsIdentity).Claims.ToList())
+                };
                 OcorrenciaApplication.Add(ocorrencia);
                 return ValidaRetornoApplication();
             }

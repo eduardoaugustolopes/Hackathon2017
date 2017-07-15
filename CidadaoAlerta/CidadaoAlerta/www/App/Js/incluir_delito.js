@@ -1,5 +1,5 @@
 ﻿function criaTelaIncluirDelito(){
-    $('#main').html(
+    $('#conteudo').html(
         "<div class='row'>" +
             "<div class='input-field col s12'>"+
                 "<select id='TipoOcorrencia'>"+
@@ -24,18 +24,50 @@
             "</div>" +
         "</div>" +
 
-        //"<div class='row'>"+
-            "<form class='col s12'>"+
-                "<div class='row'>"+
-                    "<div class='input-field col s12'>"+
-                        "<textarea id='textarea1' class='materialize-textarea'></textarea>"+
-                        "<label for='textarea1'>Descrição</label>"+
-                    "</div>"+
-                "</div>"+
-            "</form>"+
+        "<div class='row'>"+
+            "<div class='input-field col s12'>"+
+                "<textarea id='Descricao' class='materialize-textarea'></textarea>"+
+                "<label for='textarea1'>Descrição</label>"+
+            "</div>"+
+        "</div>" + 
+
+        "<div class='row'>" +
+            "<button class='btn waves-effect waves-light' type='submit' name='action' onclick='cadastraOcorrencia();'>Confirmar</button>" +
         "</div>"
     );
 
     $('#TipoOcorrencia').material_select();
     $('#TipoItem').material_select();
+}
+
+function cadastraOcorrencia() {
+    $.ajax({
+        type: "POST",
+        url: WS_CidadaoAlerta() + "/Api/Ocorrencia/Create",
+        data: JSON.stringify(retornaDadosTelaOcorrencia()),
+        cache: false,
+        contentType: "application/json;charset=utf-8",
+        headers: { "Authorization": "Bearer " + localStorage.getItem("jtoken") },
+        success: function (retorno) {
+            if (retorno.Type == "Success") {
+                alert("Ocorrência informada!");
+            }
+            else {
+                alert(retorno.Message);
+            }
+        },
+        error: function (retorno) {
+            alert(JSON.parse(retorno.responseText).Message);
+        }
+    });
+}
+
+function retornaDadosTelaOcorrencia() {
+    data = {
+        TipoOcorrencia: $("#TipoOcorrencia").val(),
+        TipoItem: $("#TipoItem").val(),
+        Descricao: $("#Descricao").val()
+    }
+
+    return data;
 }
